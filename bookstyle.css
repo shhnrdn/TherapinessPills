@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Candal&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(180deg, rgba(120, 190, 255, 1) 0%, rgba(78, 161, 237, 1) 100%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background: #0758b0;
+    color: white;
+    width: 100%;
+    text-align: left;
+    padding: 1em 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header {
+    background: #0758b0;
+    height: 66px;
+}
+
+header * {
+    color: white;
+}
+
+header .logo {
+    float: left;
+    height: inherit;
+    margin-left: 2em;
+}
+
+.header .logo-text {
+    margin-left: 9px;
+    font-family: 'Candal', serif;
+    height: 50px;
+    width: 150px;
+    position: relative;
+    text-decoration: none; /* Remove underline */
+}
+
+header .logo-text span {
+    color: #89CFF0;
+    font-family: 'Candal', serif;
+}
+
+header ul {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+header ul li {
+    float: left;
+    position: relative;
+}
+
+header ul li ul {
+    position: absolute;
+    top: 66px;
+    right: 0px;
+    width: 180px;
+    display: none;
+    z-index: 88888;
+}
+
+header ul li:hover ul {
+    display: block;
+}
+
+header ul li ul li {
+    width: 100%;
+}
+
+header ul li ul li a {
+    padding: 10px;
+    background: white;
+    color: #444;
+}
+
+header ul li ul li a.logout {
+    color: red;
+}
+
+header ul li ul li a:hover {
+    background: #d5d6d6;
+}
+
+header ul li a {
+    display: block;
+    padding: 21px;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+header ul li a:hover {
+    background: #031844;
+    transition: 0.5s;
+}
+
+header .menu-toggle {
+    display: none;
+}
+
+main {
+    width: 100%;
+    height: calc(100vh - 80px); /* Adjust height based on header size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px; /* Adjust margin based on header size */
+}
+
+.content {
+    background: white;
+    width: 60%;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.content .text-center {
+    font-family: 'Lora', serif;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black background */
+    padding: 10px; /* Add some padding */
+    border-radius: 5px; /* Optional: add some rounding to the corners */
+}
+
+
+.search, .suggestions {
+    margin-top: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, button {
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+}
+
+button {
+    background: #0758b0;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #031844;
+}
+
+.hotel-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hotel-item {
+    background: #f9f9f9;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.hotel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.hotel-item h3 {
+    margin-top: 0.5rem;
+}
+
+footer {
+    background: royalblue;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+    position: absolute;
+}
