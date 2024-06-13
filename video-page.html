@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Video Page</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" />
+        <link rel="stylesheet" href="assets/stylesheets/ymain.css" />
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Roboto', sans-serif;
+                background-color: #000; /* Updated background color */
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: #0758b0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 5px 25px;
+                color: white;
+                padding-right: 40px;
+                z-index: 1000;
+            }
+
+            .col-1 {
+                display: flex;
+                align-items: center;
+            }
+
+            .header .logo {
+                float: left;
+                height: inherit;
+                margin-left: 2em;
+            }
+
+            .header .logo-text {
+                margin-left: 9px;
+                font-family: 'Candal', serif;
+                height: 50px;
+                width: 150px;
+                position: relative;
+            }
+
+            .col-2 {
+                display: flex;
+                align-items: center;
+                flex-basis: 40%;
+                margin-left: 40px;
+            }
+
+            .col-2 form {
+                position: relative;
+                width: 100%;
+            }
+
+            .col-2 input {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                background-color: #2e83de;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 12px;
+                color: white;
+                font-size: 1em;
+                outline: none;
+            }
+
+            .col-2 input::placeholder {
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            .col-2 .search {
+                min-width: 60px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #2e83de;
+                border: none;
+                outline: none;
+            }
+
+            .col-2 .mic {
+                min-width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-left: 26px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #2e83de;
+                border: none;
+                outline: none;
+            }
+
+            .col-3 {
+                display: flex;
+                align-items: center;
+            }
+
+            .col-3 i {
+                margin-left: 25px;
+            }
+
+            .main-content {
+                display: flex;
+                flex: 1;
+                padding-top: 60px; /* Adjusted to make space for the fixed header */
+            }
+
+            .video-player {
+                flex: 2;
+                margin-right: 20px;
+            }
+
+            .video-player iframe {
+                width: 100%;
+                height: 450px;
+            }
+
+            .video-info {
+                padding: 10px 20px; /* Adjusted to create space */
+            }
+
+            .video-info h2 {
+                margin: 10px 0 10px 20px; /* Adjusted to move the title to the right */
+                color: white; /* Ensure text is visible */
+            }
+
+            .video-info .channel {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                margin-left: 20px; /* Adjusted to move the channel name to the right */
+                color: white; /* Ensure text is visible */
+            }
+
+            .video-info .channel img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            .sidebar {
+                flex: 1;
+                overflow-y: auto;
+                padding-left: 10px; /* Added padding */
+                background-color: #000;
+            }
+
+            .sidebar .section {
+                margin-bottom: 20px;
+            }
+
+            .sidebar .section h3 {
+                margin-bottom: 10px;
+                color: white; /* Ensure text is visible */
+            }
+
+            .sidebar .video-item-container {
+                border: 1px solid #ccc; /* Container border */
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 10px;
+                background-color: #000; /* Updated background color */
+                display: flex;
+                align-items: center;
+            }
+
+            .sidebar .video-item {
+                display: flex;
+                cursor: pointer;
+            }
+
+            .sidebar .video-item img {
+                width: 120px;
+                height: 70px;
+                margin-right: 10px;
+            }
+
+            .sidebar .video-item div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .video-title, .channel-name {
+                color: white; /* Ensure text is visible on blue background */
+            }
+
+            .footer {
+                background-color: #0758b0;
+                text-align: center;
+                padding: 10px;
+                color: white;
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="col-1">
+                <i class="ri-menu-line"></i>
+                <div class="logo">
+                    <h1><a class="logo-text" href="yindex.jsp"><span>Therapiness</span>Pills</a></h1>
+                </div>
+            </div>
+            <div class="col-2">
+                <form id="search-form">
+                    <input type="text" placeholder="Search" id="search-input">
+                </form>
+                <button class="search" id="search-button"><i class="ri-search-line"></i></button>
+                <button class="mic"><i class="ri-mic-line"></i></button>
+            </div>
+            <div class="col-3">
+                <i class="ri-video-add-line"></i>
+                <i class="ri-notification-fill"></i>
+                <i class="ri-user-fill"></i>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="video-player">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h2 id="video-title">Video Title</h2>
+                    <div class="channel">
+                        <img id="channel-thumbnail" src="https://via.placeholder.com/40" alt="Channel">
+                        <span id="channel-name">Channel Name</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="section">
+                    <h3>Next</h3>
+                    <div class="video-item-container" id="recommendation-template" style="display: none;">
+                        <div class="video-item">
+                            <img src="https://via.placeholder.com/120x70" alt="Video Title">
+                            <div>
+                                <div class="video-title">Video Title</div>
+                                <div class="channel-name">Channel Name</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="recommendations"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h4>Copyright 2024 The Therapiness Pills | All rights reserved</h4>
+        </div>
+
+        <script>
+            const videoId = sessionStorage.getItem("videoId");
+            const api_key = "AIzaSyB0zYGqb3_jEEyyMn0yeboTYQfmEuhb0js";
+            const video_http = "https://www.googleapis.com/youtube/v3/videos?";
+            const channel_http = "https://www.googleapis.com/youtube/v3/channels?";
+
+            const fetchVideoDetails = (videoId) => {
+                fetch(
+                        video_http + new URLSearchParams({
+                            part: "snippet, contentDetails, statistics, player",
+                            id: videoId,
+                            key: api_key,
+                        })
+                        )
+                        .then((res) => res.json())
+                        .then((data) => {
+                            const videoData = data.items[0];
+                            document.querySelector(".video-player iframe").src = videoData.player.embedHtml.match(/src="([^"]*)"/)[1];
+                            document.getElementById("video-title").textContent = videoData.snippet.title;
+                            document.getElementById("channel-name").textContent = videoData.snippet.channelTitle;
+                            getChannelIcon(videoData.snippet.channelId);
+                        })
+                        .catch((err) => console.log("Error fetching video details: ", err));
+            };
+
+            const getChannelIcon = (channelId) => {
+                fetch(
+                        channel_http + new URLSearchParams({
+                            key: api_key,
+                            part: "snippet",
+                            id: channelId,
+                        })
+                        )
+                        .then((res) => res.json())
+                        .then((data) => {
+                            const channelThumbnail = data.items[0].snippet.thumbnails.default.url;
+                            document.getElementById("channel-thumbnail").src = channelThumbnail;
+                        })
+                        .catch((err) => console.log("Error fetching channel icon: ", err));
+            };
+
+            if (videoId) {
+                fetchVideoDetails(videoId);
+            } else {
+                alert("Video ID not found.");
+            }
+
+            // Search functionality
+            const searchButton = document.getElementById('search-button');
+            const searchInput = document.getElementById('search-input');
+
+            searchButton.addEventListener('click', (e) => {
+                e.preventDefault();  // Prevent form from submitting
+                const query = searchInput.value;
+                if (query) {
+                    searchVideos(query);
+                }
+            });
+
+            const searchVideos = (query) => {
+                const search_http = "https://www.googleapis.com/youtube/v3/search?";
+                fetch(
+                        search_http + new URLSearchParams({
+                            key: api_key,
+                            part: 'snippet',
+                            q: query,
+                            maxResults: 20,
+                            type: 'video',
+                            regionCode: 'MY'
+                        })
+                        )
+                        .then((res) => res.json())
+                        .then((data) => {
+                            const recommendationsContainer = document.getElementById('recommendations');
+                            recommendationsContainer.innerHTML = '';
+                            data.items.forEach((item) => {
+                                getVideoDetails(item.id.videoId);
+                            });
+                        })
+                        .catch((err) => console.log("Error fetching search results: ", err));
+            };
+
+            const getVideoDetails = (videoId) => {
+                fetch(
+                        video_http + new URLSearchParams({
+                            part: "snippet, contentDetails, statistics, player",
+                            id: videoId,
+                            key: api_key,
+                        })
+                        )
+                        .then((res) => res.json())
+                        .then((data) => {
+                            const videoData = data.items[0];
+                            makeRecommendation(videoData);
+                        })
+                        .catch((err) => console.log("Error fetching video details: ", err));
+            };
+
+            const makeRecommendation = (data) => {
+                const template = document.getElementById('recommendation-template');
+                const clone = template.cloneNode(true);
+                clone.style.display = 'flex';
+                clone.querySelector('img').src = data.snippet.thumbnails.default.url;
+                clone.querySelector('.video-title').textContent = data.snippet.title;
+                clone.querySelector('.channel-name').textContent = data.snippet.channelTitle;
+                clone.addEventListener('click', () => {
+                    sessionStorage.setItem("videoId", data.id);
+                    window.location.href = "video-page.html";
+                });
+                document.getElementById('recommendations').appendChild(clone);
+            };
+        </script>
+    </body>
+
+</html>

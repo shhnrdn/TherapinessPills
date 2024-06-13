@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        h2 {
+            font-size: 30px;
+            color: #0758b0;
+        }
+        input[type=text], input[type=password] {
+            width: 300px;
+            padding: 12px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0758b0;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 320px;
+        }
+        footer {
+            background-color: #0758b0;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Log In to The Therapiness Pills</h2>
+        <form action="processLogin.jsp" method="POST">
+            <input type="text" id="username" name="username" placeholder="Username" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 The Therapiness Pills | All right reserved</p>
+    </footer>
+</body>
+</html>
